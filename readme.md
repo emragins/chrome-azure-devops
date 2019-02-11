@@ -24,3 +24,14 @@ In both cases a new tab will be opened.
 * Support for multiple Companies (unplanned)
 * A real icon (unplanned)
 
+## Development
+
+To run this extension locally in development mode: 
+
+1. Download into a directory
+2. In chrome, go to menu (...) -> More Tools -> Extensions
+3. In the top-right hand corner, enable "Developer mode"
+4. Click "Load unpacked"
+5. Navigate to the root folder where you downloaded the files and click "ok"
+
+The extension should now be loaded into chrome and a new icon should appoar near the URL bar.
