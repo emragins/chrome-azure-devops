@@ -1,0 +1,27 @@
+body {
+    width: 300px;
+}
+
+.content {
+    padding-top: 2px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+.row {
+    padding: 2px;
+
+}
+
+.muted {
+    color: #666;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.full-width {
+    width: 100%;
+}

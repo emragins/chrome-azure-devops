@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
+        integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <div class="content">
+        <h2>Azure DevOps Search</h2>
+        <div class="pure-g" style="padding-bottom: 7px;">
+            <div class="pure-u-4-5 muted">
+                <div class="">Search within:
+                    <span class="bold" id="company"></span>,
+                    <span class="bold" id="projectName"></span>
+                </div>
+            </div>
+            <div class="pure-u-1-5 muted" style="text-align: right;">
+                <a class="" id="settings" tooltip="Settings">
+                    <i class="fa fa-cog"></i>
+                </a>
+            </div>
+        </div>
+
+        <form id="search" class="pure-form full-width">
+            <input class="full-width" id="query" type="text" hint="search..." autofocus />
+
+            <button class="pure-button full-width" type="submit" tooltip="Search">
+                <i class="fa fa-search"></i> Search
+            </button>
+        </form>
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+{
+    "manifest_version": 2,
+    "name": "Azure DevOps Search",
+    "description": "Quickly search Azure DevOps (formerly VSTS)",
+    "version": "1",
+    "author": "Eve Ragins",
+    "options_page": "options.html",
+    "browser_action": {
+        "default_title": "Search Azure DevOps",
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "images/icon16.png",
+            "32": "images/icon32.png",
+            "48": "images/icon48.png",
+            "128": "images/icon128.png"
+        }
+    },
+    // these display on the extension management page
+    "icons": {
+        "16": "images/icon16.png",
+        "32": "images/icon32.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    },
+    "commands": {
+        "_execute_browser_action": {
+            "suggested_key": {
+                "windows": "Alt+Shift+D"
+                //   "mac": "Alt+Shift+D", 
+                //   "chromeos": "Alt+Shift+D",
+                //   "linux": "Ctrl+Shift+J"
+            }
+        }
+    },
+    "permissions": [
+        "storage"
+    ]
+}
