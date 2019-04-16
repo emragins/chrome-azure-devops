@@ -2,26 +2,50 @@
 <html>
 
 <head>
-    <style>
-        div {
-            padding: .3em;
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
+        integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <style type="text/css">
+        .content {
+            padding-top: 2px;
+            padding-right: 10px;
+            padding-left: 10px;
+            padding-bottom: 5px;
         }
+
     </style>
 </head>
 
-<body>
-    <div>
-            <p>Fill in the information below based on the following format:</p>
-            <p>https://company.visualstudio.com/Project/</p>
-    </div>
-    <!-- gold plate: auto-parse given a url :) -->
-    <div>Company: <input type="text" id="company" placeholder="your_company" /></div>
-    <div>Project Name: <input type="text" id="projectName" placeholder="your_project" />
-    </div>
+<body class="content">
+    <h1>Azure DevOps Search Options</h1>
+    <form class="pure-form">
+        <fieldset>
+            <legend>Preferences</legend>
+            <div>
+                <input type="checkbox" id="newTab" /> Open search a new tab by default. If unchecked, a search will re-use the current tab.
+                <i> (this can be overridden at the time of search)</i>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Configuration</legend>
+            <div>
+                <p>Fill in the information below based on the following format:</p>
+                <p style="opacity: 80;"><input type="radio" name="azure_url" value="azure"/> https://dev.azure.com/<b>company</b>/<b>Project</b>/</p>
+                <p><input type="radio" name="azure_url" value="vsts"/> https://<b>company</b>.visualstudio.com/<b>Project</b>/</p>
+            </div>
+            <!-- gold plate: auto-parse given a url :) -->
+            <div>Company: <input type="text" id="company" placeholder="your_company" /></div>
+            <div>Project Name: <input type="text" id="projectName" placeholder="your_project" /></div>
+        </fieldset>
 
-    <div><button id="save">Save Options</button></div>
-
-    <div> <button id="close">Close Tab</button></div>
+        <div>
+            <p><button id="save" class="pure-button">Save Options</button></p>
+            <p> <button id="close" class="pure-button">Close Tab</button></p>
+        </div>
+    </form>
     <script src="options.js"></script>
 </body>
 

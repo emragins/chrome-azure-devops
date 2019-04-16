@@ -1,12 +1,15 @@
 let span_company = document.getElementById('company');
 let span_projectName = document.getElementById('projectName');
 let form_search = document.getElementById('search');
+let form_newTab = document.getElementById('newTab');
 let button_settings = document.getElementById('settings');
 let input_query = document.getElementById('query');
 
 let openUrl;
-chrome.storage.sync.get({ company: '', projectName: '' }, function (items) {
-    openUrl = `https://${items.company}.visualstudio.com/${items.projectName}`
+chrome.storage.sync.get({ company: '', projectName: '', url: 'azure' }, function (items) {
+    openUrl = items.url == 'vsts' 
+        ? `https://${items.company}.visualstudio.com/${items.projectName}`
+        : `https://dev.azure.com/${items.company}/${items.projectName}`;
 });
 
 // setup triggers 
@@ -27,16 +30,23 @@ form_search.onsubmit = function () {
 
     console.log('url:' + openUrl);
 
-    let createProperties = {
+    let tabProperties = {
         url: openUrl,
     };
 
-    chrome.tabs.create(createProperties);  // auto-focuses as of Chrome 33
+    if (form_newTab.checked) {
+        chrome.tabs.create(tabProperties);  // auto-focuses as of Chrome 33
+    }
+    else {
+        chrome.tabs.getCurrent(tab => chrome.tabs.update(tabProperties));
+    }
 }
 
 
 // load the page data
-chrome.storage.sync.get({ company: '', projectName: '' }, function (items) {
+chrome.storage.sync.get({ company: '', projectName: '', newTab: true }, function (items) {
+    console.debug("items: " + JSON.stringify(items));
+
     let company = items.company;
     let projectName = items.projectName;
     // make sure they're both present 
@@ -48,5 +58,6 @@ chrome.storage.sync.get({ company: '', projectName: '' }, function (items) {
 
     span_company.textContent = company;
     span_projectName.textContent = projectName;
+    form_newTab.checked = items.newTab;
 })
 

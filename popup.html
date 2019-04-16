@@ -12,7 +12,7 @@
 
 <body>
     <div class="content">
-        <h2>Azure DevOps Search</h2>
+        <h2>Search Azure Devops</h2>
         <div class="pure-g" style="padding-bottom: 7px;">
             <div class="pure-u-4-5 muted">
                 <div class="">Search within:
@@ -25,14 +25,21 @@
                     <i class="fa fa-cog"></i>
                 </a>
             </div>
-        </div>
+        </div>  
 
-        <form id="search" class="pure-form full-width">
-            <input class="full-width" id="query" type="text" hint="search..." autofocus />
-
-            <button class="pure-button full-width" type="submit" tooltip="Search">
-                <i class="fa fa-search"></i> Search
-            </button>
+        <form id="search" class="pure-form pure-g">
+            <div class="pure-u-4-5">
+                <input class="full-width" id="query" type="text" hint="search..." autofocus="">
+            </div>
+            <div class="pure-u-1-5 muted" style="text-align: center;">
+                New tab
+                <input type="checkbox" id="newTab" />
+            </div>
+            <div class="pure-u-1-1">
+                <button class="pure-button full-width" type="submit" tooltip="Search">
+                    <i class="fa fa-search"></i> Search
+                </button>
+            </div>
         </form>
     </div>
     <script src="popup.js"></script>
