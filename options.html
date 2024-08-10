@@ -15,7 +15,6 @@
             padding-left: 10px;
             padding-bottom: 5px;
         }
-
     </style>
 </head>
 
@@ -25,7 +24,8 @@
         <fieldset>
             <legend>Preferences</legend>
             <div>
-                <input type="checkbox" id="newTab" /> Open search a new tab by default. If unchecked, a search will re-use the current tab.
+                <input type="checkbox" id="newTab" /> Open search a new tab by default. If unchecked, a search will
+                re-use the current tab.
                 <i> (this can be overridden at the time of search)</i>
             </div>
         </fieldset>
@@ -33,8 +33,15 @@
             <legend>Configuration</legend>
             <div>
                 <p>Fill in the information below based on the following format:</p>
-                <p style="opacity: 80;"><input type="radio" name="azure_url" value="azure"/> https://dev.azure.com/<b>company</b>/<b>Project</b>/</p>
-                <p><input type="radio" name="azure_url" value="vsts"/> https://<b>company</b>.visualstudio.com/<b>Project</b>/</p>
+                <p style="opacity: 80;"><input type="radio" name="azure_url" value="azure" />
+                    https://dev.azure.com/<b>company</b>/<b>Project</b>/</p>
+                <p><input type="radio" name="azure_url" value="vsts" />
+                    https://<b>company</b>.visualstudio.com/<b>Project</b>/</p>
+                <p>
+                    <input type="radio" name="azure_url" value="custom" /> Custom URL (include company and project)
+                    <input type="text" id="customUrl" placeholder="https://mydomain.com/MyCompany/MyProject"
+                        size="50" />
+                </p>
             </div>
             <!-- gold plate: auto-parse given a url :) -->
             <div>Company: <input type="text" id="company" placeholder="your_company" /></div>
