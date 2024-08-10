@@ -6,10 +6,12 @@ let button_settings = document.getElementById('settings');
 let input_query = document.getElementById('query');
 
 let openUrl;
-chrome.storage.sync.get({ company: '', projectName: '', url: 'azure' }, function (items) {
-    openUrl = items.url == 'vsts' 
-        ? `https://${items.company}.visualstudio.com/${items.projectName}`
-        : `https://dev.azure.com/${items.company}/${items.projectName}`;
+chrome.storage.sync.get({ company: '', projectName: '', url: 'azure', customUrl: '' }, function (items) {
+    openUrl = items.url == 'azure'
+        ? `https://dev.azure.com/${items.company}/${items.projectName}`
+        : items.url == 'vsts'
+            ? `https://${items.company}.visualstudio.com/${items.projectName}`
+            : items.customUrl;
 });
 
 // setup triggers 
@@ -44,8 +46,15 @@ form_search.onsubmit = function () {
 
 
 // load the page data
-chrome.storage.sync.get({ company: '', projectName: '', newTab: true }, function (items) {
+chrome.storage.sync.get({ company: '', projectName: '', newTab: true, customUrl: '' }, function (items) {
     console.debug("items: " + JSON.stringify(items));
+
+    form_newTab.checked = items.newTab;
+
+    if (items.customUrl && items.customUrl.length > 0) {
+        span_company.textContent = items.customUrl;
+        return;
+    }
 
     let company = items.company;
     let projectName = items.projectName;
@@ -58,6 +67,5 @@ chrome.storage.sync.get({ company: '', projectName: '', newTab: true }, function
 
     span_company.textContent = company;
     span_projectName.textContent = projectName;
-    form_newTab.checked = items.newTab;
 })
 

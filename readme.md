@@ -5,7 +5,7 @@ This is a chrome extension that's designed for all those times when a coworker r
 ## Current Functionality
 
 ### Settings
-Settings are based off the URL following the format of `https://dev.azure.com/company/Project/` or  `https://company.visualstudio.com/Project/`
+Settings are based off the URL following the format of `https://dev.azure.com/company/Project/` or  `https://company.visualstudio.com/Project/` or a custom URL.
 
 ### Searching
 If you type in a number, it will attempt to open the work item directly.
