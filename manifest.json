@@ -1,11 +1,11 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "Azure DevOps Search",
     "description": "Quickly and easily search your Azure DevOps (formerly VSTS) project directly from this extension.",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "author": "Eve Ragins",
     "options_page": "options.html",
-    "browser_action": {
+    "action": {
         "default_title": "Search Azure DevOps",
         "default_popup": "popup.html",
         "default_icon": {
@@ -22,7 +22,7 @@
         "128": "images/icon128.png"
     },
     "commands": {
-        "_execute_browser_action": {
+        "_execute_action": {
             "suggested_key": {
                 "windows": "Alt+Shift+D",
                 "linux": "Alt+Shift+D"

@@ -60,22 +60,22 @@ closeButton.onclick = function () {
 
 
 chrome.storage.sync.get({ company: '', projectName: '', newTab: true, url: 'azure', customUrl: '' },
-    function (items) {
+    function ({ company, projectName, newTab, url, customUrl }) {
         // console.debug('newTab: ' + items.newTab);
 
         var urlOptions = document.getElementsByName("azure_url");
         if (urlOptions) {
             for (var i = 0; i < urlOptions.length; i++) {
-                if (urlOptions[i].value == items.url) {
+                if (urlOptions[i].value == url) {
                     urlOptions[i].checked = true;
                 }
             }
         }
 
-        input_company.value = items.company;
-        input_project.value = items.projectName;
-        input_newTab.checked = items.newTab;
-        input_customUrl.value = items.customUrl;
+        input_company.value = company;
+        input_project.value = projectName;
+        input_newTab.checked = newTab;
+        input_customUrl.value = customUrl;
     });
 
 
