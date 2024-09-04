@@ -8,7 +8,7 @@ let openUrl;
 chrome.storage.sync.get({ company: '', projectName: '', url: 'azure', customUrl: '' }, function (
     { company, projectName, url, customUrl }) {
     openUrl = url == 'azure'
-        ? `https://dev.azure.com/${company}/ ${projectName}`
+        ? `https://dev.azure.com/${company}/${projectName}`
         : url == 'vsts'
             ? `https://${company}.visualstudio.com/${projectName}`
             : customUrl;
